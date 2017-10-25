@@ -124,19 +124,24 @@
     <entry>
       <title><![CDATA[Hexo start《一》]]></title>
       <url>/2017/10/18/hexo%20%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
-      <content type="html"><![CDATA[<p>开始搭建HEXO<br> <a id="more"></a></p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">看了很多网页现在开始用HEXO,简洁明了，开始搭建HEXO</div></pre></td></tr></table></figure>
-<h1 id="开始爬坑之路"><a href="#开始爬坑之路" class="headerlink" title="开始爬坑之路!"></a>开始爬坑之路!</h1><h1 id="尚未解决的问题："><a href="#尚未解决的问题：" class="headerlink" title="尚未解决的问题："></a>尚未解决的问题：</h1><blockquote>
-<ul>
-<li><h3 id="部署到阿里云服务器"><a href="#部署到阿里云服务器" class="headerlink" title="部署到阿里云服务器"></a>部署到阿里云服务器</h3></li>
-<li><h3 id="设置域名"><a href="#设置域名" class="headerlink" title="设置域名"></a>设置域名</h3></li>
-</ul>
-</blockquote>
-<h2 id="走过的坑："><a href="#走过的坑：" class="headerlink" title="走过的坑："></a><strong>走过的坑：</strong></h2><blockquote>
-<ul>
-<li><h3 id="更新主题没有反应"><a href="#更新主题没有反应" class="headerlink" title="更新主题没有反应"></a>更新主题没有反应</h3></li>
-</ul>
-</blockquote>
+      <content type="html"><![CDATA[<div class="note danger"><p>开始搭建HEXO</p></div>
+ <a id="more"></a>
+
+
+ undefined
+
+# 开始爬坑之路!
+
+# 尚未解决的问题：
+
+> - ### 部署到阿里云服务器
+>
+> - ### 设置域名
+
+##  **走过的坑：**
+
+> * ### 更新主题没有反应
+
   <div class="note class_name"><p>解决办法：<br>  先hexo clean 在hexo g -d试试<br>  清空public 效果就是hexo clean 相当于把public静态文件清空在重新生成部署。<br>  hexo generate hexo deploy 简写 hexo g -d </p></div>
 <blockquote>
 <ul>
