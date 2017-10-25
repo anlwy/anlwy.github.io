@@ -237,7 +237,8 @@ hexo new page &quot;tags&quot;
       <url>/2017/10/18/hexo%E6%90%AD%E5%BB%BA%E4%BA%8C/</url>
       <content type="html"><![CDATA[<p>测试！---
 :your_emoji_1:
-{％github_emoji sparkles％}</p>
+{％github_emoji sparkles％}
+&lt; h1 &gt; &lt;％github_emoji（'octocat'）％&gt; &lt;/ h1 &gt;</p>
 ]]></content>
       
         <categories>
