@@ -122,30 +122,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Hexo start《二》]]></title>
-      <url>/2017/10/18/hexo%E6%90%AD%E5%BB%BA%E4%BA%8C/</url>
-      <content type="html"><![CDATA[<p>测试！---
-:your_emoji_1:
-{％github_emoji sparkles％}
-&lt; h1 &gt; &lt;％github_emoji（'octocat'）％&gt; &lt;/ h1 &gt;</p>
-]]></content>
-      
-        <categories>
-            
-            <category> Hexo </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Hexo start《一》]]></title>
       <url>/2017/10/18/hexo%20%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
       <content type="html"><![CDATA[<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">看了很多网页现在开始用HEXO,简洁明了，开始搭建HEXO</div></pre></td></tr></table></figure></p>
@@ -239,6 +215,27 @@ hexo new page &quot;tags&quot;
 <h4><a href="https://github.com/emn178/markdown" target="_blank" rel="external">Markdown基本语法</a></h4>
 <p>https://coding.net/help/doc/project/markdown.html</p>
 <p><strong>ps:现在很简陋，以后会好的！</strong></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Hexo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo start《二》]]></title>
+      <url>/2017/10/18/hexo%E6%90%AD%E5%BB%BA%E4%BA%8C/</url>
+      <content type="html"><![CDATA[<p>测试！---</p>
 ]]></content>
       
         <categories>
