@@ -112,7 +112,7 @@
     <entry>
       <title><![CDATA[Hexo start《二》]]></title>
       <url>/2017/10/18/hexo%E6%90%AD%E5%BB%BA%E4%BA%8C/</url>
-      <content type="html"><![CDATA[<p>测试！—<br><img class="github-emoji" title="smile" alt="smile" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v7" height="20" width="20"><img class="github-emoji" title="smile" alt="smile" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v7" height="20" width="20"></p>
+      <content type="html"><![CDATA[<p>.emoji {<br>  height: 1.2em;<br>}<br>测试！—<br><img class="github-emoji" title="smile" alt="smile" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v7" height="20" width="20"><img class="github-emoji" title="smile" alt="smile" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v7" height="20" width="20"></p>
 ]]></content>
       
         <categories>
