@@ -3,32 +3,211 @@
   
     
     <entry>
+      <title><![CDATA[自定义ListView布局]]></title>
+      <url>/2017/11/08/%E8%87%AA%E5%AE%9A%E4%B9%89ListView%E5%B8%83%E5%B1%80/</url>
+      <content type="html"><![CDATA[<h1>自定义ListView布局</h1>
+<h3>创建布局文件（list_Item）</h3>
+<p><img src="http://oy1yeugfj.bkt.clouddn.com/gl.png" alt="布局文件"></p>
+<h4>界面分解</h4>
+<ol>
+<li>
+<p>一个自定义Toolbar（标题栏)</p>
+</li>
+<li>
+<p>一个自定义Litview</p>
+<blockquote>
+<p>TextView,Image,CheckBox,Button,通过一个LinearLayout横向布局嵌套一个LinearLayout竖向平分组成这个页面</p>
+</blockquote>
+</li>
+</ol>
+<p>代码如下:</p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line">&lt;LinearLayout xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">    android:orientation=<span class="string">"horizontal"</span></div><div class="line">    android:layout_width=<span class="string">"match_parent"</span></div><div class="line">    android:layout_height=<span class="string">"match_parent"</span>&gt;</div><div class="line"></div><div class="line">    &lt;ImageView</div><div class="line">        android:id=<span class="string">"@+id/fruit_image"</span></div><div class="line">        android:layout_width=<span class="string">"wrap_content"</span></div><div class="line">        android:layout_height=<span class="string">"wrap_content"</span> /&gt;</div><div class="line"></div><div class="line">    &lt;TextView</div><div class="line">        android:id=<span class="string">"@+id/fruit_name"</span></div><div class="line">        android:layout_width=<span class="string">"wrap_content"</span></div><div class="line">        android:layout_height=<span class="string">"wrap_content"</span></div><div class="line">        android:layout_gravity=<span class="string">"center_vertical"</span></div><div class="line">        android:layout_marginLeft=<span class="string">"10dp"</span> /&gt;</div><div class="line">    &lt;CheckBox</div><div class="line">        android:id=<span class="string">"@+id/fruit_chekbox"</span></div><div class="line">        android:layout_width=<span class="string">"wrap_content"</span></div><div class="line">        android:layout_height=<span class="string">"wrap_content"</span></div><div class="line">        android:layout_marginLeft=<span class="string">"10dp"</span>/&gt;</div><div class="line">    &lt;LinearLayout</div><div class="line">        android:layout_width=<span class="string">"wrap_content"</span></div><div class="line">        android:layout_height=<span class="string">"match_parent"</span></div><div class="line">        android:orientation=<span class="string">"vertical"</span>&gt;</div><div class="line">        &lt;TextView</div><div class="line">            android:id=<span class="string">"@+id/fruit_CP"</span></div><div class="line">            android:layout_width=<span class="string">"wrap_content"</span></div><div class="line">            android:layout_height=<span class="string">"0dp"</span></div><div class="line">            android:layout_gravity=<span class="string">"center_vertical"</span></div><div class="line">            android:layout_weight=<span class="string">"1"</span></div><div class="line">            android:gravity=<span class="string">"center"</span></div><div class="line">            /&gt;</div><div class="line">        &lt;TextView</div><div class="line">            android:id=<span class="string">"@+id/fruit_Name"</span></div><div class="line">            android:layout_width=<span class="string">"wrap_content"</span></div><div class="line">            android:layout_height=<span class="string">"0dp"</span></div><div class="line">            android:layout_gravity=<span class="string">"center_vertical"</span></div><div class="line">            android:gravity=<span class="string">"center"</span></div><div class="line">            android:layout_weight=<span class="string">"1"</span></div><div class="line">            /&gt;</div><div class="line">    &lt;/LinearLayout&gt;</div><div class="line">    &lt;Button</div><div class="line">        android:id=<span class="string">"@+id/fruit_button"</span></div><div class="line">        android:layout_width=<span class="string">"wrap_content"</span></div><div class="line">        android:layout_height=<span class="string">"wrap_content"</span></div><div class="line">        /&gt;</div><div class="line"></div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure></p>
+<h3>创建实体类（Fruit.java）</h3>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">格式：</div><div class="line">	<span class="keyword">private</span> 类型 命名;</div><div class="line">例：</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> image;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> chek;</div><div class="line">    <span class="keyword">private</span> String name;</div></pre></td></tr></table></figure></p>
+<p>通过快捷键 Alt+Insert生成Get+Set和Construction（构造方法）</p>
+<h3>创建适配器（FruitAdapter.java）</h3>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">FruitAdapter extends ArrayAdapter&lt;Fruit&gt;<span class="comment">//继承ArrayAdapter&lt;Fruit&gt;</span></div><div class="line"></div><div class="line">FruitAdapter(Context context, <span class="keyword">int</span> textViewResourceId,List&lt;Fruit&gt; objects）<span class="comment">//	重写构造方法</span></div><div class="line"></div><div class="line"><span class="function">View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> <span class="comment">//实现getView</span></span></div></pre></td></tr></table></figure></p>
+<p>主要代码如下：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> View <span class="title">getView</span><span class="params">(<span class="keyword">int</span> position, View convertView, ViewGroup parent)</span> </span>&#123;</div><div class="line">    Fruit fruit = getItem(position); <span class="comment">// 获取当前项的Fruit实例</span></div><div class="line">    View view;</div><div class="line">    ViewHolder viewHolder;</div><div class="line">    <span class="keyword">if</span> (convertView == <span class="keyword">null</span>) &#123;</div><div class="line">        view = LayoutInflater.from(getContext()).inflate(resourceId, parent, <span class="keyword">false</span>);</div><div class="line">        viewHolder = <span class="keyword">new</span> ViewHolder();</div><div class="line">        viewHolder.fruitImage = (ImageView) view.findViewById (R.id.fruit_image);</div><div class="line">        viewHolder.fruitName = (TextView) view.findViewById (R.id.fruit_name);</div><div class="line">        viewHolder.fruitChekbox= (CheckBox) view.findViewById(R.id.fruit_chekbox);</div><div class="line">        viewHolder.fruitCp= (TextView) view.findViewById(R.id.fruit_CP);</div><div class="line">        viewHolder.fruitName01= (TextView) view.findViewById(R.id.fruit_Name);</div><div class="line">        viewHolder.fruitB= (Button) view.findViewById(R.id.fruit_button);</div><div class="line">        view.setTag(viewHolder); <span class="comment">// 将ViewHolder存储在View中</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        view = convertView;</div><div class="line">        viewHolder = (ViewHolder) view.getTag(); <span class="comment">// 重新获取ViewHolder</span></div><div class="line">    &#125;</div><div class="line">    viewHolder.fruitImage.setImageResource(fruit.getImageId());</div><div class="line">    viewHolder.fruitName.setText(fruit.getName());</div><div class="line">    viewHolder.fruitChekbox.setChecked(fruit.isF());</div><div class="line">    viewHolder.fruitCp.setText(fruit.getCp());</div><div class="line">    viewHolder.fruitName01.setText(fruit.getName01());</div><div class="line">    viewHolder.fruitB.setText(<span class="string">"2222"</span>);</div><div class="line">    <span class="keyword">return</span> view;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3>在活动页面添加数据(MainActivity.java)</h3>
+<p>关键代码：</p>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">private</span> List&lt;Fruit&gt; fruitList = <span class="keyword">new</span> ArrayList&lt;Fruit&gt;(); <span class="comment">//获取实体类</span></div><div class="line">      initFruits(); <span class="comment">// 初始化水果数据</span></div><div class="line">      FruitAdapter adapter;</div><div class="line">      adapter = <span class="keyword">new</span> FruitAdapter(MainActivity.<span class="keyword">this</span>, R.layout.fruit_item, fruitList);</div><div class="line">      <span class="comment">//获取布局文件</span></div><div class="line">      ListView listView = (ListView) findViewById(R.id.list_view);</div><div class="line">      <span class="comment">//找到ListView</span></div><div class="line">      listView.setAdapter(adapter);</div><div class="line">      <span class="comment">//添加到适配器上</span></div><div class="line">      <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initFruits</span><span class="params">()</span> </span>&#123;</div><div class="line">          Fruit apple = <span class="keyword">new</span> Fruit(<span class="string">"Apple"</span>, R.drawable.apple_pic,<span class="keyword">false</span>);</div><div class="line">          <span class="comment">//添加数据</span></div><div class="line">          fruitList.add(apple);</div><div class="line">          ｝</div></pre></td></tr></table></figure></p>
+<p>实现效果：</p>
+<p><img src="http://oy1yeugfj.bkt.clouddn.com/af00e89b0c1e133cccbfab1da464901f.jpg" alt=""></p>
+<blockquote>
+<p>终于完成了！</p>
+</blockquote>
+<h3>遇到的错误</h3>
+<ol>
+<li>手机运行时奔溃</li>
+</ol>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">FATAL EXCEPTION: main</div><div class="line">java.lang.NullPointerException: Attempt to invoke virtual method <span class="string">'void android.widget.TextView.setText(java.lang.CharSequence)'</span> on a <span class="keyword">null</span> object reference</div><div class="line">at com.example.listviewtest.FruitAdapter.getView(FruitAdapter.java:<span class="number">46</span>)</div></pre></td></tr></table></figure></p>
+<p>出现这种错误大多数是前面的代码没添加到View布局中导致空数组异常</p>
+<ul>
+<li>[ ] 滑动菜单</li>
+<li>[ ] 数据存储</li>
+<li>[ ] 欢迎引导页面</li>
+<li>[ ] 更强大的RecyclerView</li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> Android </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Android实战 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Hexo start《一》]]></title>
+      <url>/2017/10/18/hexo%20%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
+      <content type="html"><![CDATA[<blockquote>
+<p>开始搭建HEXO
+&lt;!-- more --&gt;</p>
+</blockquote>
+<p><em>看了很多网页现在开始用HEXO,简洁明了，开始搭建HEXO</em></p>
+<h1>开始爬坑之路!</h1>
+<h1>尚未解决的问题：</h1>
+<blockquote>
+<ul>
+<li>
+<h3>部署到阿里云服务器</h3>
+</li>
+<li>
+<h3>设置域名</h3>
+</li>
+</ul>
+</blockquote>
+<h2><strong>走过的坑：</strong></h2>
+<blockquote>
+<ul>
+<li>
+<h3>更新主题没有反应</h3>
+</li>
+</ul>
+</blockquote>
+<p><div class="note class_name"><p>解决办法：
+先hexo clean 在hexo g -d试试
+清空public 效果就是hexo clean 相当于把public静态文件清空在重新生成部署。
+hexo generate hexo deploy 简写 hexo g -d</p></div></p>
+<blockquote>
+<ul>
+<li>
+<h3>设置SHH密钥时出现错误显示：connect to host github.com port 22: Connection timed out。</h3>
+</li>
+</ul>
+</blockquote>
+<p>​    <div class="note danger"><p>解决办法：
+在.ssh目录下创建一个config文件，
+输入如下内容： Host github.com User xxx@qq.com （你注册github时的邮箱，这里使用注册的用户名也行） Hostname ssh.github.com PreferredAuthentications publickey IdentityFile ~/.ssh/id_rsa Port 443 值得注意是文件名为config，没有后缀名。 然后测试是否连得上 :
+即：ssh -T git@github.com 会
+出现以下情况：
+出现Hi xxx!……表示连接成功。</p></div></p>
+<blockquote>
+<ul>
+<li>
+<h3>github 网页显示不带CSS样式</h3>
+</li>
+</ul>
+</blockquote>
+<p>​       <div class="note danger"><p>安装hexo-deployer-git自动部署发布工具 ,
+<code>npm instal lhexo-deployer-git --save</code> ，这个工具提供一些简单的指令帮助你发布博文到博客，比如每次修改了或者新增了博客，只用<code>hexo generate</code> 生成静态文件，然后hexo deploy就可以发布到github page。</p>
+<p>安装成功以后，依次运行hexo clean hexo generate hexo deploy`</p></div></p>
+<blockquote>
+<ul>
+<li>
+<h3>标签没办法连接到文章</h3>
+</li>
+</ul>
+</blockquote>
+<p><div class="note danger"><p>解决办法：
+hexo new page &quot;tags&quot;
+创建一个Tag 页面存放标签</p></div></p>
+<blockquote>
+<ul>
+<li>
+<h3>图片无法显示</h3>
+</li>
+</ul>
+</blockquote>
+<p><div class="note danger"><p>通过七牛云上传图片，获取外链地址</p></div></p>
+<blockquote>
+<ul>
+<li>
+<h2>在解决问题的同时借鉴许多网址，感谢如下网址提供的帮助：</h2>
+</li>
+</ul>
+</blockquote>
+<h4><a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">Next官网:</a></h4>
+<h4><a href="https://segmentfault.com/a/1190000009544924" target="_blank" rel="external">hexo的Next主题个性化配置教程：</a></h4>
+<h4><a href="http://www.jianshu.com/p/baea8c95e39b" target="_blank" rel="external">Hexo添加字数统计、阅读时长：</a></h4>
+<blockquote>
+<ul>
+<li>NexT主题有一个配置选项toc_list_number: true，这个选项使我们的目录会自动配上顺序标号，所以我们在自己写的时候可以不用带上了，如果不习惯的话，把这个配置注释掉即可。</li>
+</ul>
+</blockquote>
+<h4><a href="http://www.jianshu.com/p/23b9e095c7c9" target="_blank" rel="external"> 配置个性域名</a></h4>
+<h4><a href="https://segmentfault.com/q/1010000006891147" target="_blank" rel="external">关于主题的配置</a></h4>
+<h4><a href="1">七牛云存储图片</a></h4>
+<h4><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">md的高级设置</a></h4>
+<h4><a href="http://www.jianshu.com/p/3a8dba06856a" target="_blank" rel="external">使用指导:</a></h4>
+<h4><a href="http://moxfive.xyz/2016/01/10/hexo-post-version-control/" target="_blank" rel="external">更新历史</a></h4>
+<h4><a href="https://github.com/emn178/markdown" target="_blank" rel="external">Markdown基本语法</a></h4>
+<p>https://coding.net/help/doc/project/markdown.html</p>
+<p><strong>ps:现在很简陋，以后会好的！</strong></p>
+]]></content>
+      
+        <categories>
+            
+            <category> Hexo </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Hexo </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[探究Accessibility服务]]></title>
       <url>/2017/10/18/andoid/</url>
-      <content type="html"><![CDATA[<div class="note danger"><h1 id="探究Accessibility服务"><a href="#探究Accessibility服务" class="headerlink" title="探究Accessibility服务"></a>探究Accessibility服务</h1></div>
+      <content type="html"><![CDATA[<p><div class="note danger"><h1>探究Accessibility服务</h1></div>
 
 俗话说万事开头难，已经实现HEXO的基本功能了，写一点andorid方面的东西，现在开始吧！
 
 <a id="more"></a>
 
-  <div class="note danger"><h2 id="什么是Accessibility服务"><a href="#什么是Accessibility服务" class="headerlink" title="什么是Accessibility服务"></a>什么是Accessibility服务</h2></div>
+  <div class="note danger"><h2>什么是Accessibility服务</h2></div></p>
 <blockquote>
-<p> 简称无障碍服务，即你看见的东西都可以通过他来实现你想要的功能，可以说功能强大！</p>
+<p>简称无障碍服务，即你看见的东西都可以通过他来实现你想要的功能，可以说功能强大！</p>
 </blockquote>
- <div class="note danger"><h3 id="AccessibilityService官方简介："><a href="#AccessibilityService官方简介：" class="headerlink" title="AccessibilityService官方简介："></a>AccessibilityService官方简介：</h3></div>
+<p><div class="note danger"><h3>AccessibilityService官方简介：</h3></div>
 
  The classes in this package are used 
  for development of accessibility service 
  that providealternative or augmented feedback to the user.
  使用这个类可以开发用于给用户提供替换或者是增强反馈的辅助功能服务。
-<p>AccessibilityService运行在后台,界面中产生的任何变化都会产生一个时间,
+</p><p>AccessibilityService运行在后台,界面中产生的任何变化都会产生一个时间,
 并由系统通知给AccessibilityService.
 这就像监视器监视着界面的一举一动,一旦界面发生变化,立刻发出警报.</p>
 
 
- <div class="note danger"><h2 id="怎么配置Accessibility服务"><a href="#怎么配置Accessibility服务" class="headerlink" title="怎么配置Accessibility服务"></a>怎么配置Accessibility服务</h2></div>
+ <div class="note danger"><h2>怎么配置Accessibility服务</h2></div><p></p>
 <blockquote>
-<h3 id="主要方法："><a href="#主要方法：" class="headerlink" title="主要方法："></a><strong>主要方法：</strong></h3></blockquote>
+<h3><strong>主要方法：</strong></h3>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -60,35 +239,46 @@
 </tbody>
 </table>
 <blockquote>
-<h3 id="创建服务类"><a href="#创建服务类" class="headerlink" title="创建服务类"></a>创建服务类</h3><p> 新建一个Java文件继承AccessibilityService<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">kk</span> <span class="keyword">extends</span> <span class="title">AccessibilityService</span> </span>&#123;    </div><div class="line"><span class="meta">@Override</span>    </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAccessibilityEvent</span><span class="params">(AccessibilityEvent accessibilityEvent)</span></span>&#123;  	&#125;    </div><div class="line"><span class="meta">@Override</span>  </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInterrupt</span><span class="params">()</span> </span>&#123;   </div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3>创建服务类</h3>
+</blockquote>
+<blockquote>
+<p>新建一个Java文件继承AccessibilityService
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">kk</span> <span class="keyword">extends</span> <span class="title">AccessibilityService</span> </span>&#123;    </div><div class="line"><span class="meta">@Override</span>    </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAccessibilityEvent</span><span class="params">(AccessibilityEvent accessibilityEvent)</span></span>&#123;  	&#125;    </div><div class="line"><span class="meta">@Override</span>  </div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onInterrupt</span><span class="params">()</span> </span>&#123;   </div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 </blockquote>
 <p>继承AccessibilityService，实现两个方法！</p>
 <blockquote>
-<h3 id="声明服务"><a href="#声明服务" class="headerlink" title="声明服务"></a>声明服务</h3><p> 在manifest里面声明相关服务</p>
+<h3>声明服务</h3>
 </blockquote>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;service</div><div class="line">android:name=<span class="string">".kk"</span><span class="comment">//这个是你创建好的Java文件</span></div><div class="line"> android:label=<span class="string">"辅助功能"</span><span class="comment">//这个是服务页面显示的文字</span></div><div class="line">android:permission=<span class="string">"android.permission.BIND_ACCESSIBILITY_SERVICE"</span>&gt;</div><div class="line">&lt;intent-filter&gt;</div><div class="line">&lt;action android:name=<span class="string">"android.accessibilityservice.AccessibilityService"</span>/&gt;</div><div class="line">&lt;/intent-filter&gt;</div><div class="line">&lt;meta-data</div><div class="line">android:name=<span class="string">"android.accessibilityservice"</span></div><div class="line">android:resource=<span class="string">"@xml/accessibility"</span>/&gt;<span class="comment">//这是配置文件</span></div><div class="line">&gt; 找不到文件会报错按下神键ALT+ENTER起名字就行</div><div class="line">&lt;/service&gt;</div></pre></td></tr></table></figure>
 <blockquote>
-<h3 id="服务参数设置"><a href="#服务参数设置" class="headerlink" title="服务参数设置"></a>服务参数设置</h3><p>接下来我们来看accessibility.xml的相关配置:</p>
+<p>在manifest里面声明相关服务</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line">&lt;accessibility-service xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">android:accessibilityEventTypes=<span class="string">"typeNotificationStateChanged|typeWindowStateChanged|typeWindowContentChanged"</span><span class="comment">// 事件类型</span></div><div class="line">    android:accessibilityFeedbackType=<span class="string">"feedbackGeneric"</span><span class="comment">//反馈类型，声音、震动等</span></div><div class="line">    android:accessibilityFlags=<span class="string">"flagDefault"</span></div><div class="line">    android:canRetrieveWindowContent=<span class="string">"true"</span><span class="comment">//允许获取手机页面中的信息</span></div><div class="line">    android:notificationTimeout=<span class="string">"100"</span></div><div class="line">    android:packageNames=<span class="string">"com.tencent.mm"</span><span class="comment">// 要监听的包名，过滤作用，以微信的包名为例 /&gt;</span></div></pre></td></tr></table></figure>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;service</div><div class="line">android:name=<span class="string">".kk"</span><span class="comment">//这个是你创建好的Java文件</span></div><div class="line"> android:label=<span class="string">"辅助功能"</span><span class="comment">//这个是服务页面显示的文字</span></div><div class="line">android:permission=<span class="string">"android.permission.BIND_ACCESSIBILITY_SERVICE"</span>&gt;</div><div class="line">&lt;intent-filter&gt;</div><div class="line">&lt;action android:name=<span class="string">"android.accessibilityservice.AccessibilityService"</span>/&gt;</div><div class="line">&lt;/intent-filter&gt;</div><div class="line">&lt;meta-data</div><div class="line">android:name=<span class="string">"android.accessibilityservice"</span></div><div class="line">android:resource=<span class="string">"@xml/accessibility"</span>/&gt;<span class="comment">//这是配置文件</span></div><div class="line">&gt; 找不到文件会报错按下神键ALT+ENTER起名字就行</div><div class="line">&lt;/service&gt;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<h3>服务参数设置</h3>
+</blockquote>
+<blockquote>
+<p>接下来我们来看accessibility.xml的相关配置:</p>
+</blockquote>
+<p><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"utf-8"</span>?&gt;</div><div class="line">&lt;accessibility-service xmlns:android=<span class="string">"http://schemas.android.com/apk/res/android"</span></div><div class="line">android:accessibilityEventTypes=<span class="string">"typeNotificationStateChanged|typeWindowStateChanged|typeWindowContentChanged"</span><span class="comment">// 事件类型</span></div><div class="line">    android:accessibilityFeedbackType=<span class="string">"feedbackGeneric"</span><span class="comment">//反馈类型，声音、震动等</span></div><div class="line">    android:accessibilityFlags=<span class="string">"flagDefault"</span></div><div class="line">    android:canRetrieveWindowContent=<span class="string">"true"</span><span class="comment">//允许获取手机页面中的信息</span></div><div class="line">    android:notificationTimeout=<span class="string">"100"</span></div><div class="line">    android:packageNames=<span class="string">"com.tencent.mm"</span><span class="comment">// 要监听的包名，过滤作用，以微信的包名为例 /&gt;</span></div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>事件类型（EventType）：</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#TYPES_ALL_MASK：所有类型</div><div class="line">#TYPE_VIEW_CLICKED ：单击</div><div class="line">#TYPE_VIEW_LONG_CLICKED ：长按</div><div class="line">#TYPE_VIEW_SELECTED ：选中</div><div class="line">#TYPE_VIEW_FOCUSED ：获取焦点</div><div class="line">#TYPE_VIEW_TEXT_CHANGED ：文字改变</div><div class="line">#TYPE_WINDOW_STATE_CHANGED ：窗口状态改变</div><div class="line">#TYPE_NOTIFICATION_STATE_CHANGED ：通知状态改变</div></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#TYPES_ALL_MASK：所有类型</div><div class="line">#TYPE_VIEW_CLICKED ：单击</div><div class="line">#TYPE_VIEW_LONG_CLICKED ：长按</div><div class="line">#TYPE_VIEW_SELECTED ：选中</div><div class="line">#TYPE_VIEW_FOCUSED ：获取焦点</div><div class="line">#TYPE_VIEW_TEXT_CHANGED ：文字改变</div><div class="line">#TYPE_WINDOW_STATE_CHANGED ：窗口状态改变</div><div class="line">#TYPE_NOTIFICATION_STATE_CHANGED ：通知状态改变</div></pre></td></tr></table></figure></p>
 <p>只需要仿照该配置文件根据自己的需求进行修改即可</p>
- <div class="note danger"><h3 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h3></div>
+<p><div class="note danger"><h3>运行效果</h3></div></p>
 <blockquote>
 <p>做了个简单的跳转方便找到服务</p>
 </blockquote>
-<p><img src="" data-echo="http://oy1yeugfj.bkt.clouddn.com/Screenshot_2017-10-19-19-21-56-280_com.example.ad.png?imageView/2/w/300/q/50" alt=""></p>
+<p><img src="http://oy1yeugfj.bkt.clouddn.com/Screenshot_2017-10-19-19-21-56-280_com.example.ad.png?imageView/2/w/300/q/50" alt=""></p>
 <blockquote>
 <p>没有设置其他的属性默认就是这样</p>
 </blockquote>
-<p><img src="" data-echo="http://oy1yeugfj.bkt.clouddn.com/Screenshot_2017-10-19-19-21-48-554_com.android.se.png?imageView/2/w/300/q/50" alt=""></p>
+<p><img src="http://oy1yeugfj.bkt.clouddn.com/Screenshot_2017-10-19-19-21-48-554_com.android.se.png?imageView/2/w/300/q/50" alt=""></p>
 <blockquote>
-<p>已经将了如何创建基础的探究Accessibility服务，接下来更新会写到实际的应用<br>比如朋友圈自动点赞，敬请期待。</p>
+<p>已经将了如何创建基础的探究Accessibility服务，接下来更新会写到实际的应用
+比如朋友圈自动点赞，敬请期待。</p>
 <p>图片也不可以加！！</p>
-<p>Ps:被MD的格式问题困扰许久，终于发现了 在贴代码块的时候前面的代码不要加note标签，否则显示不出来 </p>
+<p>Ps:被MD的格式问题困扰许久，终于发现了 在贴代码块的时候前面的代码不要加note标签，否则显示不出来</p>
 </blockquote>
 ]]></content>
       
@@ -110,83 +300,11 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Hexo start《一》]]></title>
-      <url>/2017/10/18/hexo%20%E7%9A%84%E6%90%AD%E5%BB%BA/</url>
-      <content type="html"><![CDATA[<blockquote>
-<p>开始搭建HEXO<br> <a id="more"></a></p>
-</blockquote>
-<p> <em>看了很多网页现在开始用HEXO,简洁明了，开始搭建HEXO</em></p>
-<h1 id="开始爬坑之路"><a href="#开始爬坑之路" class="headerlink" title="开始爬坑之路!"></a>开始爬坑之路!</h1><h1 id="尚未解决的问题："><a href="#尚未解决的问题：" class="headerlink" title="尚未解决的问题："></a>尚未解决的问题：</h1><blockquote>
-<ul>
-<li><h3 id="部署到阿里云服务器"><a href="#部署到阿里云服务器" class="headerlink" title="部署到阿里云服务器"></a>部署到阿里云服务器</h3></li>
-<li><h3 id="设置域名"><a href="#设置域名" class="headerlink" title="设置域名"></a>设置域名</h3></li>
-</ul>
-</blockquote>
-<h2 id="走过的坑："><a href="#走过的坑：" class="headerlink" title="走过的坑："></a><strong>走过的坑：</strong></h2><blockquote>
-<ul>
-<li><h3 id="更新主题没有反应"><a href="#更新主题没有反应" class="headerlink" title="更新主题没有反应"></a>更新主题没有反应</h3></li>
-</ul>
-</blockquote>
-  <div class="note class_name"><p>解决办法：<br>  先hexo clean 在hexo g -d试试<br>  清空public 效果就是hexo clean 相当于把public静态文件清空在重新生成部署。<br>  hexo generate hexo deploy 简写 hexo g -d </p></div>
-<blockquote>
-<ul>
-<li><h3 id="设置SHH密钥时出现错误显示：connect-to-host-github-com-port-22-Connection-timed-out。"><a href="#设置SHH密钥时出现错误显示：connect-to-host-github-com-port-22-Connection-timed-out。" class="headerlink" title="设置SHH密钥时出现错误显示：connect to host github.com port 22: Connection timed out。"></a>设置SHH密钥时出现错误显示：connect to host github.com port 22: Connection timed out。</h3></li>
-</ul>
-</blockquote>
-<p>​    <div class="note danger"><p>解决办法：<br>  在.ssh目录下创建一个config文件，<br>  输入如下内容： Host github.com User xxx@qq.com （你注册github时的邮箱，这里使用注册的用户名也行） Hostname ssh.github.com PreferredAuthentications publickey IdentityFile ~/.ssh/id_rsa Port 443 值得注意是文件名为config，没有后缀名。 然后测试是否连得上 :<br>  即：ssh -T git@github.com 会<br>  出现以下情况：<br>  出现Hi xxx!……表示连接成功。  </p></div></p>
-<blockquote>
-<ul>
-<li><h3 id="github-网页显示不带CSS样式"><a href="#github-网页显示不带CSS样式" class="headerlink" title="github 网页显示不带CSS样式"></a>github 网页显示不带CSS样式</h3></li>
-</ul>
-</blockquote>
-<p>​       <div class="note danger"><p>安装hexo-deployer-git自动部署发布工具 ,<br>   <code>npm instal lhexo-deployer-git --save</code> ，这个工具提供一些简单的指令帮助你发布博文到博客，比如每次修改了或者新增了博客，只用<code>hexo generate</code> 生成静态文件，然后hexo deploy就可以发布到github page。</p>
-<p>   安装成功以后，依次运行hexo clean hexo generate hexo deploy`   </p></div></p>
-<blockquote>
-<ul>
-<li><h3 id="标签没办法连接到文章"><a href="#标签没办法连接到文章" class="headerlink" title="标签没办法连接到文章"></a>标签没办法连接到文章</h3></li>
-</ul>
-</blockquote>
-  <div class="note danger"><p> 解决办法：<br>hexo new page “tags”<br>创建一个Tag 页面存放标签 </p></div>
-<blockquote>
-<ul>
-<li><h3 id="图片无法显示"><a href="#图片无法显示" class="headerlink" title="图片无法显示"></a>图片无法显示</h3></li>
-</ul>
-</blockquote>
-  <div class="note danger"><p>通过七牛云上传图片，获取外链地址</p></div>
-<blockquote>
-<ul>
-<li><h2 id="在解决问题的同时借鉴许多网址，感谢如下网址提供的帮助："><a href="#在解决问题的同时借鉴许多网址，感谢如下网址提供的帮助：" class="headerlink" title="在解决问题的同时借鉴许多网址，感谢如下网址提供的帮助："></a>在解决问题的同时借鉴许多网址，感谢如下网址提供的帮助：</h2></li>
-</ul>
-</blockquote>
-<h4 id="Next官网"><a href="#Next官网" class="headerlink" title="Next官网:"></a><a href="http://theme-next.iissnan.com/theme-settings.html" target="_blank" rel="external">Next官网:</a></h4><h4 id="hexo的Next主题个性化配置教程："><a href="#hexo的Next主题个性化配置教程：" class="headerlink" title="hexo的Next主题个性化配置教程："></a><a href="https://segmentfault.com/a/1190000009544924" target="_blank" rel="external">hexo的Next主题个性化配置教程：</a></h4><h4 id="Hexo添加字数统计、阅读时长："><a href="#Hexo添加字数统计、阅读时长：" class="headerlink" title="Hexo添加字数统计、阅读时长："></a><a href="http://www.jianshu.com/p/baea8c95e39b" target="_blank" rel="external">Hexo添加字数统计、阅读时长：</a></h4><blockquote>
-<ul>
-<li>NexT主题有一个配置选项toc_list_number: true，这个选项使我们的目录会自动配上顺序标号，所以我们在自己写的时候可以不用带上了，如果不习惯的话，把这个配置注释掉即可。</li>
-</ul>
-</blockquote>
-<h4 id="配置个性域名"><a href="#配置个性域名" class="headerlink" title=" 配置个性域名"></a><a href="http://www.jianshu.com/p/23b9e095c7c9" target="_blank" rel="external"> 配置个性域名</a></h4><h4 id="关于主题的配置"><a href="#关于主题的配置" class="headerlink" title="关于主题的配置"></a><a href="https://segmentfault.com/q/1010000006891147" target="_blank" rel="external">关于主题的配置</a></h4><h4 id="七牛云存储图片"><a href="#七牛云存储图片" class="headerlink" title="七牛云存储图片"></a><a href="1">七牛云存储图片</a></h4><h4 id="md的高级设置"><a href="#md的高级设置" class="headerlink" title="md的高级设置"></a><a href="http://ibruce.info/2013/11/22/hexo-your-blog/" target="_blank" rel="external">md的高级设置</a></h4><h4 id="使用指导"><a href="#使用指导" class="headerlink" title="使用指导:"></a><a href="http://www.jianshu.com/p/3a8dba06856a" target="_blank" rel="external">使用指导:</a></h4><h4 id="更新历史"><a href="#更新历史" class="headerlink" title="更新历史"></a><a href="http://moxfive.xyz/2016/01/10/hexo-post-version-control/" target="_blank" rel="external">更新历史</a></h4><h4 id="Markdown基本语法"><a href="#Markdown基本语法" class="headerlink" title="Markdown基本语法"></a><a href="https://github.com/emn178/markdown" target="_blank" rel="external">Markdown基本语法</a></h4><p><a href="https://coding.net/help/doc/project/markdown.html" target="_blank" rel="external">https://coding.net/help/doc/project/markdown.html</a></p>
-<p><strong>ps:现在很简陋，以后会好的！</strong></p>
-]]></content>
-      
-        <categories>
-            
-            <category> Hexo </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Hexo </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
       <title><![CDATA[Hexo start《二》]]></title>
       <url>/2017/10/18/hexo%E6%90%AD%E5%BB%BA%E4%BA%8C/</url>
-      <content type="html"><![CDATA[<p>测试！—<br><img class="github-emoji" title="smile" alt="smile" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v7" height="20" width="20"><img class="github-emoji" title="smile" alt="smile" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v7" height="20" width="20"></p>
-<p><img class="github-emoji" title="wink" alt="wink" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f609.png?v7" height="20" width="20"> :crush: <img class="github-emoji" title="cry" alt="cry" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f622.png?v7" height="20" width="20"> :tear: <img class="github-emoji" title="laughing" alt="laughing" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f606.png?v7" height="20" width="20"> <img class="github-emoji" title="yum" alt="yum" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f60b.png?v7" height="20" width="20"></p>
+      <content type="html"><![CDATA[<p>测试！---
+&lt;img class=&quot;github-emoji&quot;  title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v7&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt;&lt;img class=&quot;github-emoji&quot;  title=&quot;smile&quot; alt=&quot;smile&quot; src=&quot;https://assets-cdn.github.com/images/icons/emoji/unicode/1f604.png?v7&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt;</p>
+<p>&lt;img class=&quot;github-emoji&quot;  title=&quot;wink&quot; alt=&quot;wink&quot; src=&quot;https://assets-cdn.github.com/images/icons/emoji/unicode/1f609.png?v7&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; :crush: &lt;img class=&quot;github-emoji&quot;  title=&quot;cry&quot; alt=&quot;cry&quot; src=&quot;https://assets-cdn.github.com/images/icons/emoji/unicode/1f622.png?v7&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; :tear: &lt;img class=&quot;github-emoji&quot;  title=&quot;laughing&quot; alt=&quot;laughing&quot; src=&quot;https://assets-cdn.github.com/images/icons/emoji/unicode/1f606.png?v7&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt; &lt;img class=&quot;github-emoji&quot;  title=&quot;yum&quot; alt=&quot;yum&quot; src=&quot;https://assets-cdn.github.com/images/icons/emoji/unicode/1f60b.png?v7&quot; height=&quot;20&quot; width=&quot;20&quot; /&gt;</p>
 ]]></content>
       
         <categories>
